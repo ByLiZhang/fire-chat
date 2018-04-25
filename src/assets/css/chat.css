@@ -1,0 +1,5 @@
+.chat .messages {
+	position: absolute;
+	bottom: 0;
+	font-size: 1.3em;
+}
