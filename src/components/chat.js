@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import db from '../firebase';  
 import { connect } from 'react-redux';
 import { updateChat } from '../actions';
+import '../assets/css/chat.css';
 
 class Chat extends Component {
 	componentDidMount(){
@@ -12,9 +13,22 @@ class Chat extends Component {
 
 	render(){
 		console.log('Chat Log:', this.props.log);
+
+		const messages = this.props.log.map((msg, index) => {
+			return (
+				<p key={index}>
+					<b>{msg.author}:</b>
+					<span>{msg.message}</span>
+				</p>
+			);
+		})
+
 		return (
-			<div>
+			<div className='container chat'>
 				<h1 className='center'>Chat Room</h1>
+				<div className='messages'>
+					{messages}
+				</div>
 			</div>
 		);
 	}
